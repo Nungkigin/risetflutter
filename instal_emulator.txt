@@ -1,0 +1,28 @@
+instal emulator Android tanpa Android Studio
+Menggunakan Android SDK dan AVD Manager
+Langkah-langkah:
+Download Android SDK Command-line Tools:
+
+Buka halaman resmi Android SDK di sini dan unduh "Command line tools only" sesuai sistem operasi kamu (Windows, macOS, atau Linux).
+Ekstrak file tersebut ke dalam folder yang mudah diakses, misalnya C:\AndroidSDK.
+Install SDK Platform dan Emulator:
+
+Buka Command Prompt (Windows) atau Terminal (macOS/Linux).
+Masuk ke folder tempat SDK Tools diunduh. Misalnya:
+
+
+cd C:\AndroidSDK\cmdline-tools\bin
+Ketik perintah berikut untuk menginstal platform SDK dan emulator yang diperlukan:
+
+
+sdkmanager "platform-tools" "platforms;android-30" "system-images;android-30;google_apis;x86" "emulator"
+Platform android-30 bisa diganti sesuai kebutuhanmu.
+Buat dan Jalankan Virtual Device:
+
+Buat virtual device dengan perintah berikut:
+
+avdmanager create avd -n MyEmulator -k "system-images;android-30;google_apis;x86"
+Jalankan emulator dengan perintah:
+
+emulator -avd MyEmulator
+Emulator Android akan dimulai tanpa perlu Android Studio.
