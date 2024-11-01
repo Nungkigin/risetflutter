@@ -1,0 +1,138 @@
+Langkah-langkah Membuat Proyek Pertama Flutter
+1. Instal Flutter SDK
+Unduh Flutter SDK dari flutter.dev.
+Ekstrak file dan tambahkan flutter/bin ke PATH sistem kamu.
+Pastikan instalasi berhasil dengan menjalankan perintah berikut di command prompt atau terminal:
+bash
+Salin kode
+flutter doctor
+flutter doctor akan menampilkan informasi status instalasi dan mengingatkan jika ada hal yang perlu diinstal atau dikonfigurasi.
+2. Membuat Proyek Baru
+Buka command prompt atau terminal, lalu arahkan ke folder tempat kamu ingin menyimpan proyek.
+Ketik perintah berikut untuk membuat proyek Flutter baru:
+bash
+Salin kode
+flutter create my_first_project
+Ganti my_first_project dengan nama proyek yang kamu inginkan. Flutter akan membuat struktur folder dan file proyek.
+3. Menjalankan Proyek
+Masuk ke folder proyek:
+bash
+Salin kode
+cd my_first_project
+Pastikan emulator atau perangkat fisik terhubung dan terdeteksi. Kamu bisa memeriksa perangkat dengan:
+bash
+Salin kode
+flutter devices
+Jalankan proyek dengan perintah:
+bash
+Salin kode
+flutter run
+Proyek akan dijalankan di perangkat yang tersedia, dan kamu akan melihat aplikasi sederhana dengan tulisan "You have pushed the button this many times".
+4. Mengedit Tampilan Awal
+Buka proyek di editor pilihanmu (misalnya, Visual Studio Code atau Android Studio).
+Edit file lib/main.dart untuk mengubah UI. Kamu bisa memodifikasi kode di dalam file ini untuk melihat perubahan langsung pada aplikasi.
+5. Mencoba Hot Reload dan Hot Restart
+Saat menjalankan aplikasi dengan flutter run, kamu bisa menggunakan hot reload dengan menekan r pada terminal untuk melihat perubahan UI dengan cepat.
+Gunakan hot restart dengan menekan R jika kamu ingin memulai ulang aplikasi tanpa menghentikan proses debug.
+Selamat! Kamu telah berhasil membuat dan menjalankan proyek Flutter pertamamu.
+
+Menjalankan Proyek Flutter di Emulator
+Buka proyek Flutter di editor atau melalui command prompt.
+Cek Perangkat yang Terdeteksi:
+Jalankan perintah berikut untuk memastikan emulator terdeteksi oleh Flutter:
+bash
+Salin kode
+flutter devices
+Kamu akan melihat daftar perangkat yang tersedia, termasuk emulator.
+Jalankan Aplikasi di Emulator:
+Jalankan perintah berikut:
+bash
+Salin kode
+flutter run
+Aplikasi akan otomatis di-build dan dijalankan di emulator Android yang aktif.
+3. Menggunakan Emulator Pihak Ketiga seperti Genymotion atau NoxPlayer
+Kamu bisa menggunakan emulator pihak ketiga jika lebih nyaman. Berikut adalah cara menggunakan Genymotion sebagai contoh:
+
+Menjalankan Flutter di Genymotion
+Unduh dan Install Genymotion dari genymotion.com.
+Buat Perangkat Virtual di Genymotion.
+Setelah emulator dijalankan, cek apakah terdeteksi oleh Flutter dengan perintah:
+bash
+Salin kode
+flutter devices
+Jalankan aplikasi Flutter di perangkat virtual Genymotion dengan perintah:
+bash
+Salin kode
+flutter run
+4. Menggunakan Hot Reload dan Hot Restart
+Setelah aplikasi berjalan di emulator, kamu bisa mempercepat pengujian perubahan UI dengan:
+
+Hot Reload: Tekan r di terminal untuk menerapkan perubahan kecil.
+Hot Restart: Tekan R di terminal untuk memulai ulang aplikasi tanpa keluar dari sesi debug.
+
+
+
+Jika emulator tidak terdeteksi saat menjalankan flutter devices, berikut adalah beberapa langkah yang bisa dicoba untuk mengatasi masalah ini:
+
+1. Periksa Instalasi Android SDK
+Pastikan Android SDK sudah terinstal dan terkonfigurasi dengan benar.
+Di command prompt atau terminal, jalankan:
+bash
+Salin kode
+flutter doctor
+Cek apakah ada masalah dengan instalasi Android SDK atau konfigurasi lainnya. Jika ada masalah, flutter doctor akan memberikan petunjuk.
+2. Pastikan Emulator Sedang Berjalan
+Buka Android Studio dan buka AVD Manager dengan pergi ke Tools > AVD Manager.
+Jalankan emulator dengan menekan tombol Play.
+Tunggu hingga emulator sepenuhnya terbuka dan menampilkan layar utama Android. Kadang, jika emulator belum sepenuhnya aktif, Flutter tidak dapat mendeteksinya.
+3. Periksa Path SDK Android di Variabel Lingkungan
+Flutter memerlukan path Android SDK yang terkonfigurasi dengan benar. Berikut cara mengeceknya:
+
+Di Windows
+Buka Control Panel > System and Security > System > Advanced system settings.
+Klik Environment Variables.
+Pastikan ada variabel ANDROID_HOME atau ANDROID_SDK_ROOT yang menunjuk ke folder SDK Android. Misalnya, jika Android SDK terletak di C:\Android\Sdk, maka set variabel ANDROID_HOME atau ANDROID_SDK_ROOT ke:
+plaintext
+Salin kode
+C:\Android\Sdk
+Tambahkan juga folder platform-tools ke PATH. Misalnya:
+plaintext
+Salin kode
+C:\Android\Sdk\platform-tools
+Di macOS atau Linux
+Buka file .bashrc, .bash_profile, atau .zshrc (tergantung shell yang kamu gunakan).
+Tambahkan baris berikut:
+bash
+Salin kode
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+Simpan dan muat ulang shell dengan perintah:
+bash
+Salin kode
+source ~/.bashrc
+4. Restart ADB (Android Debug Bridge)
+Kadang-kadang, masalahnya berasal dari ADB yang tidak bekerja dengan baik. Coba untuk me-restart ADB dengan perintah berikut:
+
+bash
+Salin kode
+adb kill-server
+adb start-server
+Setelah itu, coba periksa kembali apakah emulator terdeteksi dengan flutter devices.
+
+5. Menggunakan flutter emulators dan flutter emulators --launch
+Coba periksa daftar emulator yang tersedia dengan perintah:
+bash
+Salin kode
+flutter emulators
+Lihat ID emulator yang tersedia, dan jalankan emulator dengan perintah:
+bash
+Salin kode
+flutter emulators --launch <emulator_id>
+Gantilah <emulator_id> dengan ID emulator yang muncul.
+6. Coba Emulator Pihak Ketiga seperti Genymotion
+Jika masalah terus berlanjut, kamu bisa mencoba emulator pihak ketiga seperti Genymotion atau NoxPlayer. Pastikan kamu sudah menjalankan emulator tersebut sebelum menjalankan flutter devices.
+
+7. Restart Sistem
+Jika semua langkah di atas tidak berhasil, lakukan restart komputer. Kadang-kadang, masalah ini disebabkan oleh konfigurasi yang perlu di-refresh.
+
+Jika setelah mengikuti langkah-langkah di atas emulator masih belum terdeteksi, beritahu saya detail sistem operasi dan langkah yang sudah kamu coba.
